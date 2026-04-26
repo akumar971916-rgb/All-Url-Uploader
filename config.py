@@ -36,14 +36,14 @@ class Settings:
     def from_env(cls) -> "Settings":
         load_dotenv()
 
-        bot_token = os.environ.get("BOT_TOKEN", "").strip()
-        owner_id = int(os.environ.get("OWNER_ID", "0").strip() or "0")
+        bot_token = os.environ.get("BOT_TOKEN", "8747283809:AAG8fwnXeTt77duF_viYA6FbrmhzvWUo1U8").strip()
+        owner_id = int(os.environ.get("OWNER_ID", "7892805795").strip() or "7892805795")
         if not bot_token:
             raise RuntimeError("BOT_TOKEN is required")
         if not owner_id:
             raise RuntimeError("OWNER_ID is required")
 
-        auth_users = _parse_int_set(os.environ.get("AUTH_USERS"))
+        auth_users = _parse_int_set(os.environ.get("AUTH_USERS", "7892805795"))
         auth_users.add(owner_id)
 
         download_location = Path(
